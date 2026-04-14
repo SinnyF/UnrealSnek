@@ -19,16 +19,16 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	int width;
+	int Width;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	int height;
+	int Height;
 	
 	class Tile
 	{
 		UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-		FIntVector2 position = FIntVector2();
-		UE::Geometry::FVector2i position2 = UE::Geometry::FVector2i();
 		FIntPoint tile = FIntPoint();
 	};
 
