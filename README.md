@@ -1,0 +1,1 @@
+The project is at the moment mostly working but it has taken me a lot longer to make it work than I expected and I have run into a lot of bumps on the way there. I ended up using a lot of your code to get things working at least and still need to, or I at least want to implement and polish up a few things so it's a bit more of my own
