@@ -9,6 +9,7 @@
 #include "Hazard.h"
 #include "GameFramework/PlayerController.h"
 #include "SnakeStageConfig.h"
+#include "VideoRecordingSystem.h"
 #include "Components/AudioComponent.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -20,9 +21,11 @@ void AUS_GameMode::BeginPlay()
 	
 	if (UUS_GameInstance* GI = GetGameInstance<UUS_GameInstance>())
 	{
+		StartingDifficulty = GI->SelectedDifficulty;
 		ActiveGameMode = GI->SelectedGameMode;
 		Slot0Type = GI->Slot0Type;
 		Slot1Type = GI->Slot1Type;
+		CurrentStageIndex = static_cast<int32>(StartingDifficulty);
 	}
 	
 	StartPlayingRun();
@@ -55,7 +58,7 @@ void AUS_GameMode::StartPlayingRun()
 		GS->SetMatchPhase(ESnakeMatchPhase::Playing);
 	}
 
-	LoadStage(0);
+	LoadStage(CurrentStageIndex);
 }
 
 void AUS_GameMode::SpawnSnake()
@@ -317,7 +320,7 @@ void AUS_GameMode::RestartRun()
 		GS->SetMatchPhase(ESnakeMatchPhase::Playing);
 	}
 
-	LoadStage(0);
+	LoadStage(CurrentStageIndex);
 }
 
 void AUS_GameMode::ReturnToMainMenu()

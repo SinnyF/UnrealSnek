@@ -19,13 +19,16 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, Category = "Snake|Mode")
 	ESnakePlayerSlotType Slot1Type = ESnakePlayerSlotType::AI;
+	
+	UPROPERTY(BlueprintReadWrite, Category = "Snake|Mode")
+	EDifficulty SelectedDifficulty = EDifficulty::Easy;
 
 	UFUNCTION(BlueprintCallable, Category = "Snake|Mode")
-	void ConfigureNormalSinglePlayer();
+	void ConfigureNormalSinglePlayer(EDifficulty Difficulty);
 
 	UFUNCTION(BlueprintCallable, Category = "Snake|Mode")
-	void ConfigureBattleLocal();
+	void ConfigureBattleLocal(EDifficulty Difficulty);
 
 	UFUNCTION(BlueprintCallable, Category = "Snake|Mode")
-	void ConfigureCoopLocal();
+	void ConfigureCoopLocal(EDifficulty Difficulty);
 };

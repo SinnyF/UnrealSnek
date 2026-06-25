@@ -49,8 +49,5 @@ struct FSnakeStageConfig
 	int32 FoodToClear = 3;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	TArray<FHazardSpawnData> Hazards;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	int32 Pattern = 0;
 };

@@ -67,6 +67,9 @@ private:
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Snake|Mode", meta = (AllowPrivateAccess = "true"))
 	EGameModeType ActiveGameMode = EGameModeType::NormalSinglePlayer;
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Snake|Mode", meta = (AllowPrivateAccess = "true"))
+	EDifficulty StartingDifficulty = EDifficulty::Easy;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Snake|Battle", meta = (AllowPrivateAccess = "true"))
 	EResult BattleResult = EResult::None;

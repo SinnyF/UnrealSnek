@@ -50,13 +50,13 @@ public:
 		}
 	}
 	UFUNCTION(BlueprintCallable)
-	void RequestStartNormalSinglePlayer();
+	void RequestStartNormalSinglePlayer(EDifficulty Difficulty);
 
 	UFUNCTION(BlueprintCallable)
-	void RequestStartBattleLocal();
+	void RequestStartBattleLocal(EDifficulty Difficulty);
 
 	UFUNCTION(BlueprintCallable)
-	void RequestStartCoopLocal();
+	void RequestStartCoopLocal(EDifficulty Difficulty);
 
 protected:
 	UFUNCTION(BlueprintCallable)

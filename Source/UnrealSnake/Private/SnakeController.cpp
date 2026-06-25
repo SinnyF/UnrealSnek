@@ -28,31 +28,31 @@ void ASnakeController::RequestStartGame()
 	UGameplayStatics::OpenLevel(this, FName(TEXT("Level")));
 }
 
-void ASnakeController::RequestStartNormalSinglePlayer()
+void ASnakeController::RequestStartNormalSinglePlayer(EDifficulty Difficulty)
 {
 	if (UUS_GameInstance* GI = GetGameInstance<UUS_GameInstance>())
 	{
-		GI->ConfigureNormalSinglePlayer();
+		GI->ConfigureNormalSinglePlayer(Difficulty);
 	}
 
 	UGameplayStatics::OpenLevel(this, FName(TEXT("Level")));
 }
 
-void ASnakeController::RequestStartBattleLocal()
+void ASnakeController::RequestStartBattleLocal(EDifficulty Difficulty)
 {
 	if (UUS_GameInstance* GI = GetGameInstance<UUS_GameInstance>())
 	{
-		GI->ConfigureBattleLocal();
+		GI->ConfigureBattleLocal(Difficulty);
 	}
 
 	UGameplayStatics::OpenLevel(this, FName(TEXT("Level")));
 }
 
-void ASnakeController::RequestStartCoopLocal()
+void ASnakeController::RequestStartCoopLocal(EDifficulty Difficulty)
 {
 	if (UUS_GameInstance* GI = GetGameInstance<UUS_GameInstance>())
 	{
-		GI->ConfigureCoopLocal();
+		GI->ConfigureCoopLocal(Difficulty);
 	}
 
 	UGameplayStatics::OpenLevel(this, FName(TEXT("Level")));

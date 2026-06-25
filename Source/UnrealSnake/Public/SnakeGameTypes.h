@@ -26,3 +26,11 @@ enum class EResult : uint8
 	Player1Won,
 	Draw
 };
+
+UENUM(BlueprintType)
+enum class EDifficulty : uint8
+{
+	Easy,
+	Medium,
+	Hard
+};
