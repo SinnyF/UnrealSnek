@@ -3,6 +3,7 @@
 #include "Components/InstancedStaticMeshComponent.h"
 #include "SnakeStageConfig.h"
 #include "Components/SceneComponent.h"
+#include "UObject/FastReferenceCollector.h"
 
 AGrid::AGrid()
 {
@@ -107,6 +108,19 @@ void AGrid::GenerateBorderWalls()
 	}
 }
 
+void AGrid::GenerateObstacleWalls()
+{
+	const float Amount = ObstaclePercentage * (GridDimensions.X * GridDimensions.Y);
+	FIntPoint ObstacleCell;
+	for (int32 i = 0; i < Amount; ++i)
+	{
+		if (TryGetRandomFreeCell(ObstacleCell, BlockedCells.Array()))
+		{
+			BlockedCells.Add(ObstacleCell);
+		};
+	}
+}
+
 FVector AGrid::GridToWorld(const FIntPoint& GridCell) const
 {
 	return GridOrigin + FVector(GridCell.X * CellSize, GridCell.Y * CellSize, 0.f);
@@ -163,13 +177,12 @@ void AGrid::ApplyStage(const FSnakeStageConfig& Stage)
 {
 	GridDimensions = Stage.GridDimensions;
 	CellSize = Stage.CellSize;
+	ObstaclePercentage = float(Stage.Pattern) * 0.01f;
 	
 	ClearVisualInstances();
 	BlockedCells.Empty();
 	GenerateBorderWalls();
-	
-	if (Stage.Pattern == 1) GenerateBorderWalls();
-	if (Stage.Pattern == 2) GenerateBorderWalls();
+	GenerateObstacleWalls();
 	
 	RebuildVisualInstances();
 }

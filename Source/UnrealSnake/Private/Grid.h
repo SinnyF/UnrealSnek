@@ -45,11 +45,15 @@ protected:
 	void RebuildVisualInstances();
 	void ClearVisualInstances();
 	void GenerateBorderWalls();
+	void GenerateObstacleWalls();
 
 public:	
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Grid")
 	FIntPoint GridDimensions = FIntPoint(20, 20);
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Grid")
+	float ObstaclePercentage = 0.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Grid")
 	float CellSize = 100.0f;

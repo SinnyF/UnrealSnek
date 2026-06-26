@@ -21,11 +21,11 @@ void AUS_GameMode::BeginPlay()
 	
 	if (UUS_GameInstance* GI = GetGameInstance<UUS_GameInstance>())
 	{
-		StartingDifficulty = GI->SelectedDifficulty;
 		ActiveGameMode = GI->SelectedGameMode;
 		Slot0Type = GI->Slot0Type;
 		Slot1Type = GI->Slot1Type;
-		CurrentStageIndex = static_cast<int32>(StartingDifficulty);
+		CurrentStageIndex = static_cast<int32>(GI->SelectedDifficulty);
+		
 	}
 	
 	StartPlayingRun();
